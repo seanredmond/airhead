@@ -6,6 +6,19 @@ menu:
     menu:
       -
         label: "My Borrowing"
+        menu:
+          -
+            label: "Checked Out"
+            link: "http://nypl.bibliocommons.com/checkedout"
+          -
+            label: "Holds"
+            link: "http://nypl.bibliocommons.com/holds/index/active"
+          -
+            label: "Fines"
+            link: "http://nypl.bibliocommons.com/fines"
+          -
+            label: "Library Messages"
+            link: "http://nypl.bibliocommons.com/accountmessages"
       -
         label: "My Shelves"
       -
@@ -13,6 +26,58 @@ menu:
   - 
     label: "Explore"
     link: "http://nypl.bibliocommons.com/dashboard"
+    menu:
+      -
+        label: "New & Notable"
+        menu:
+          -
+            label: "Recent Activity"
+            link: "http://nypl.bibliocommons.com/dashboard"
+          -
+            label: "New Titles"
+            link: "http://nypl.bibliocommons.com/explore/index/newly_acquired?f_on_order=false"
+          -
+            label: "Award Winners"
+            link: "http://nypl.bibliocommons.com/explore/index/awards"
+          -
+            label: "Bestsellers"
+            link: "http://nypl.bibliocommons.com/explore/index/best_sellers"
+      -
+        label: Collections
+        menu:
+          -
+            label: "Books"
+            link: "http://nypl.bibliocommons.com/search?q=books&t=smart&search_category=keyword&title=Books"
+          -
+            label: "E-books & Audiobooks"
+            link: "/ebooks"
+          -
+            label: "Movies"
+            link: "http://nypl.bibliocommons.com/search?q=movies&t=smart&search_category=keyword&title=Movies"
+          -
+            label: "Music & Recordings"
+            link: "http://nypl.bibliocommons.com/search?t=smart&search_category=keyword&q=music&commit=Search&searchOpt=catalogue&title=Music+and+R"
+          -
+            label: "Periodicals"
+            link: "http://nypl.bibliocommons.com/search?t=smart&search_category=keyword&q=periodicals&commit=Search&searchOpt=catalogue"
+          -
+            label: "Images"
+            link: "http://digitalgallery.nypl.org/"
+          -
+            label: "Braille & Talking Books"
+            link: "/collections/nypl-collections/braille-talking-books"
+      -
+        label: "Made at NYPL"
+        menu:
+          -
+            label: "Blogs"
+            link: "/blog"
+          -
+            label: "Audio & Video"
+            link: "/voices/audio-video"
+          -
+            label: "Print Publications"
+            link: "/voices/print-publications"
   - 
     label: "Research"
     link: "/collections"
@@ -22,6 +87,28 @@ menu:
   - 
     label: "Locations"
     link: "/locations"
+    menu:
+      -
+        label: "Manhattan"
+        link: "/locations#manhattan-list"
+      -
+        label: "The Bronx"
+        link: "/locations#bronx-list"
+      -
+        label: "Staten Island"
+        link: "/locations#statenisland-list"
+      -
+        label: "Schwarzman Building"
+        link: "/locations/schwarzman"
+      -
+        label: "Library for the Performing Arts"
+        link: "/locations/lpa"
+      -
+        label: "Schomburg Center"
+        link: "/locations/schomburg"
+      -
+        label: "Science, Industry and Business Library"
+        link: "/locations/sibl"
   - 
     label: "Classes & Events"
     link: "/events"

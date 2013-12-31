@@ -3,18 +3,36 @@ require 'yaml'
 require "nokogiri"
 
 
+def third_level(m, item)
+  m.ul {
+    item.each do |sub|
+      m.li {
+        m.a(:href => sub['link']) {
+          m.text sub['label']
+        }
+      }
+    end
+  }
+end
+
 # Format a second-level menu item
 def second_level(m, item)
-  m.div.dropDownContent {
-    m.ul {
-      item.each do |sub|
-        m.li {
+  m.ul {
+    item.each do |sub|
+      m.li {
+        if sub['menu'].nil?
+          m.a(:href => sub['link']) {
+            m.text sub['label']
+          }
+        else
           m.h5 {
             m.text sub['label']
           }
-        }
-      end
-    }
+          
+          third_level(m, sub['menu'])
+        end
+      }
+    end
   }
 end
 
@@ -27,17 +45,18 @@ def top_level(m, item)
   m.li(item_attr) {
     m.a(:href=> item['link']) { 
       m.text item['label']
-      if ! item['menu'].nil?
-        second_level(m, item['menu'])
-      end
     }
+    if ! item['menu'].nil?
+      m.div.dropDownContent {
+        second_level(m, item['menu'])
+      }
+    end
   }
 end
 
 header = YAML.load_file('header.yml')
 
 @menu = Nokogiri::HTML::DocumentFragment.parse ""
-
 
 Nokogiri::HTML::Builder.with(@menu) do |m|
   m.div(:class => 'nav-wrapper') {
