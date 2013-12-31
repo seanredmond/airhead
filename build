@@ -1,0 +1,22 @@
+#!/usr/bin/env ruby
+require 'yaml'
+require "nokogiri"
+
+header = YAML.load_file('header.yml')
+puts header.inspect
+
+@menu = Nokogiri::HTML::DocumentFragment.parse ""
+
+Nokogiri::HTML::Builder.with(@menu) do |m|
+  m.div(:class => 'nav-wrapper') {
+    m.div(:class => 'primary-links') {
+      m.ul {
+        header['menu'].each do |item|
+          m.li item
+        end
+      }
+    }
+  }
+end
+
+puts @menu.to_html
