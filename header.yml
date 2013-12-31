@@ -112,6 +112,28 @@ menu:
   - 
     label: "Classes & Events"
     link: "/events"
+    menu:
+      -
+        label: "Current Exhibitions"
+        link: "/events/exhibitions"
+      -
+        label: "Programs"
+        link: "/events/public-programs"
+      -
+        label: "Classes"
+        link: "/events/classes"
+      -
+        label: "Learn English"
+        link: "/events/classes/adult-learning-centers"
+      - 
+        label: "Tours"
+        link: "/events/tours"
+      -
+        label: "Past Exhibitions"
+        link: "/events/exhibitions-past"
+      -
+        label: "LIVE from the NYPL"
+        link: "/events/live-nypl"
   - 
     label: "Support the Library"
     link: "/support"
