@@ -3,6 +3,13 @@ menu:
   - 
     label: "My NYPL"
     link: "http://nypl.bibliocommons.com/dashboard/user_dashboard"
+    menu:
+      -
+        label: "My Borrowing"
+      -
+        label: "My Shelves"
+      -
+        label: "My Community"
   - 
     label: "Explore"
     link: "http://nypl.bibliocommons.com/dashboard"

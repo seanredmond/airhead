@@ -2,20 +2,49 @@
 require 'yaml'
 require "nokogiri"
 
+
+# Format a second-level menu item
+def second_level(m, item)
+  m.div.dropDownContent {
+    m.ul {
+      item.each do |sub|
+        m.li {
+          m.h5 {
+            m.text sub['label']
+          }
+        }
+      end
+    }
+  }
+end
+
+# Format a top-level menu item
+def top_level(m, item)
+  item_attr = {}
+  if ! item['menu'].nil?
+    item_attr[:class] = 'dropDown'
+  end
+  m.li(item_attr) {
+    m.a(:href=> item['link']) { 
+      m.text item['label']
+      if ! item['menu'].nil?
+        second_level(m, item['menu'])
+      end
+    }
+  }
+end
+
 header = YAML.load_file('header.yml')
 
 @menu = Nokogiri::HTML::DocumentFragment.parse ""
+
 
 Nokogiri::HTML::Builder.with(@menu) do |m|
   m.div(:class => 'nav-wrapper') {
     m.div(:class => 'primary-links') {
       m.ul {
         header['menu'].each do |item|
-          m.li {
-            m.a(:href=> item['link']) { 
-              m.text item['label']
-            }
-          }
+          top_level(m, item)
         end
       }
     }
