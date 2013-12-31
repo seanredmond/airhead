@@ -1,10 +1,26 @@
 --- 
 menu: 
-  - My NYPL
-  - Explore
-  - Research
-  - Using the Library
-  - Locations
-  - Classes & Events
-  - Support the Library
-  - Help
+  - 
+    label: "My NYPL"
+    link: "http://nypl.bibliocommons.com/dashboard/user_dashboard"
+  - 
+    label: "Explore"
+    link: "http://nypl.bibliocommons.com/dashboard"
+  - 
+    label: "Research"
+    link: "/collections"
+  - 
+    label: "Using the Library"
+    link: "/help"
+  - 
+    label: "Locations"
+    link: "/locations"
+  - 
+    label: "Classes & Events"
+    link: "/events"
+  - 
+    label: "Support the Library"
+    link: "/support"
+  - 
+    label: "Help"
+    link: "/ask-nypl"
