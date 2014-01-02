@@ -53,7 +53,11 @@ erb
   return m.result binding
 end
 
-header = YAML.load_file('header.yml')
+def build_header
+  e = ERB.new(File.read('templates/header-full.erb'))
+  e.result binding
+end
 
-e = ERB.new(File.read('templates/header-full.erb'))
-puts e.result binding
+@header = YAML.load_file('header.yml')
+doc = ERB.new(File.read('templates/reference.erb'))
+puts doc.result binding
