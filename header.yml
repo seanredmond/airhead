@@ -81,9 +81,138 @@ menu:
   - 
     label: "Research"
     link: "/collections"
+    menu:
+      -
+        label: Electronic Resources
+        menu:
+          -
+            label: "Articles and Databases"
+            link: "/collections/articles-databases"
+          -
+            label: "Online Exhibitions"
+            link: "/events/online-exhibitions"
+          -
+            label: "Digital Gallery"
+            link: "http://digitalgallery.nypl.org/"
+          -
+            label: "NYPL Labs"
+            link: "/collections/labs"
+          -
+            label: "Digital Projects"
+            link: "/online_projects"
+
+      -
+        label: "Tools and Services"
+        menu:
+          -
+            label: "Classic Catalog"
+            link: "http://catalog.nypl.org/"
+          -
+            label: "Research Guides"
+            link: "/collections/nypl-recommendations/guides"
+          -
+            label: "Indexes to NYPL Collections"
+            link: "/specialindexes"
+          -
+            label: "Get Copies"
+            link: "/ask-nypl/research-questions-reproductions"
+          -
+            label: "NYPL Recommendations"
+            link: "/collections/nypl-recommendations"
+      -
+        label: "Collections"
+        menu:
+          -
+            label: "Research Collections"
+            link: "/research-collections"
+          -
+            label: "Manuscripts and Archives"
+            link: "http://archives.nypl.org"
+          -
+            label: "Prints & Photos Online Catalog"
+            link: "http://wallachprintsandphotos.nypl.org/"
+          -
+            link: "/collections/nypl-collections/preservation-division"
+            label: "Preservation of NYPL Collections"
   - 
     label: "Using the Library"
     link: "/help"
+    menu:
+      -
+        label: Get Oriented
+        menu:
+          -
+            label: "Get a Library Card"
+            link: "/help/library-card"
+          -
+            label: "Borrowing"
+            link: "/help/borrowing-materials"
+          -
+            label: "How To Find Things"
+            link: "/help/finding-things"
+          -
+            label: "Computers"
+            link: "/help/computers-internet-and-wireless-access"
+          -
+            label: "Accessibility"
+            link: "/help/community-outreach/services-for-persons-with-disabilities"
+          -
+            label: "About the NYPL"
+            link: "/help/about-nypl"
+          -
+            label: "Connect with NYPL"
+            link: "/voices/connect-nypl"
+      -
+        label: Services
+        menu:
+          -
+            label: "AskNYPL"
+            link: "http://nypl.org/ask-nypl"
+          -
+            link: "/help/computers-internet-and-wireless-access/reserving-computer"
+            label: "Reserve a PC"
+          -
+            label: "Community Outreach"
+            link: "/help/community-outreach"
+          -
+            label: "Get Copies"
+            link: "/ask-nypl/research-questions-reproductions"
+          -
+            label: "Interlibrary Loan"
+            link: "/help/research-services/interlibrary-loan"
+          -
+            label: "Space Rental"
+            link: "/spacerental"
+          -
+            label: "The Library Shop"
+            link: "http://shop.nypl.org/"
+      -
+        label: "I am a..."
+        menu:
+          -
+            label: "Teacher"
+            link: "/events/teaching-learning"
+          -
+            label: "Job Seeker"
+            link: "/help/getting-oriented/for-job-seekers"
+          -
+            label: "Small Business Owner"
+            link: "http://smallbiz.nypl.org/"
+          -
+            label: "Child"
+            link: "/help/getting-oriented/resources-kids"
+          -
+            label: "Teen"
+            link: "/help/getting-oriented/resources-teens"
+          -
+            label: "Person with a Disability"
+            link: "/help/community-outreach/services-for-persons-with-disabilities"
+          -
+            label: "Recent Immigrant"
+            link: "/help/community-outreach/immigrant-services"
+          -
+            link: "http://nypl.org/support"
+            label: "NYPL Donor"
   - 
     label: "Locations"
     link: "/locations"
