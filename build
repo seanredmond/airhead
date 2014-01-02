@@ -1,73 +1,55 @@
 #!/usr/bin/env ruby
 require 'yaml'
-require "nokogiri"
+require 'erb'
+include ERB::Util
 
-
-def third_level(m, item)
-  m.ul {
-    item.each do |sub|
-      m.li {
-        m.a(:href => sub['link']) {
-          m.text sub['label']
-        }
-      }
-    end
-  }
+def link_label(item)
+  ERB.new(
+    %Q|<a href="<%= h(item['link']) %>"><%= h(item['label']) %></a>|
+  ).result binding
 end
 
-# Format a second-level menu item
-def second_level(m, item)
-  m.ul {
-    item.each do |sub|
-      m.li {
-        if sub['menu'].nil?
-          m.a(:href => sub['link']) {
-            m.text sub['label']
-          }
-        else
-          m.h5 {
-            m.text sub['label']
-          }
-          
-          third_level(m, sub['menu'])
-        end
-      }
-    end
-  }
+def second_level(item)
+  e = ERB.new(<<erb, nil, '>')
+  <ul>
+  <% item.each do |i| %>
+    <% if i['menu'].nil? %>
+      <li><%= link_label(i) %></li>
+    <% else %>
+      <li>
+        <h5><%= h(i['label']) %></h5>
+        <%= second_level(i['menu']) %>
+      </li>
+    <% end %>
+  <% end %>
+  </ul>
+erb
+  e.result binding
 end
 
-# Format a top-level menu item
-def top_level(m, item)
-  item_attr = {}
-  if ! item['menu'].nil?
-    item_attr[:class] = 'dropDown'
-  end
-  m.li(item_attr) {
-    m.a(:href=> item['link']) { 
-      m.text item['label']
-    }
-    if ! item['menu'].nil?
-      m.div.dropDownContent {
-        second_level(m, item['menu'])
-      }
-    end
-  }
+def nav_menu(menu)
+  m = ERB.new(<<erb, nil, '>')
+<ul>
+  <% menu.each do |item| %>
+    <% if item['menu'].nil? %>
+      <li>
+    <% else %>
+      <li class="dropDown">
+    <% end %>
+      <%= link_label(item) %>
+      <%if ! item['menu'].nil? %>
+        <div class="dropDownContent">
+          <%= second_level(item['menu']) %>
+        </div>
+      <% end %>
+    </li>
+  <% end %>
+</ul>
+erb
+  return m.result binding
 end
 
 header = YAML.load_file('header.yml')
 
-@menu = Nokogiri::HTML::DocumentFragment.parse ""
-
-Nokogiri::HTML::Builder.with(@menu) do |m|
-  m.div(:class => 'nav-wrapper') {
-    m.div(:class => 'primary-links') {
-      m.ul {
-        header['menu'].each do |item|
-          top_level(m, item)
-        end
-      }
-    }
-  }
-end
-
-puts @menu.to_html
+e = ERB.new(File.read('templates/header-full.erb'))
+puts e.result binding
