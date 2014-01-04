@@ -1,63 +1,8 @@
 #!/usr/bin/env ruby
 require 'yaml'
-require 'erb'
-include ERB::Util
-
-def header_search
-  ERB.new(File.read('templates/header-search.erb')).result
-end
-
-def link_label(item)
-  ERB.new(
-    %Q|<a href="<%= h(item['link']) %>"><%= h(item['label']) %></a>|
-  ).result binding
-end
-
-def second_level(item)
-  e = ERB.new(<<erb, nil, '>')
-  <ul>
-  <% item.each do |i| %>
-    <% if i['menu'].nil? %>
-      <li><%= link_label(i) %></li>
-    <% else %>
-      <li>
-        <h5><%= h(i['label']) %></h5>
-        <%= second_level(i['menu']) %>
-      </li>
-    <% end %>
-  <% end %>
-  </ul>
-erb
-  e.result binding
-end
-
-def nav_menu(menu)
-  m = ERB.new(<<erb, nil, '>')
-<ul>
-  <% menu.each do |item| %>
-    <% if item['menu'].nil? %>
-      <li>
-    <% else %>
-      <li class="dropDown">
-    <% end %>
-      <%= link_label(item) %>
-      <%if ! item['menu'].nil? %>
-        <div class="dropDownContent">
-          <%= second_level(item['menu']) %>
-        </div>
-      <% end %>
-    </li>
-  <% end %>
-</ul>
-erb
-  return m.result binding
-end
-
-def build_header
-  e = ERB.new(File.read('templates/header-full.erb'))
-  e.result binding
-end
+require_relative 'lib/airhead'
 
 @header = YAML.load_file('header.yml')
-doc = ERB.new(File.read('templates/reference.erb'))
-puts doc.result binding
+h = Airhead::Header.new(@header)
+puts h.result
+
