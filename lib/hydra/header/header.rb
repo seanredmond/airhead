@@ -1,4 +1,5 @@
 module Hydra
+  module Header
   class Header
 
     @@nav = ERB.new(<<erb, nil, '>')
@@ -39,15 +40,10 @@ erb
       %Q|<a href="<%= h(item['link']) %>"><%= h(item['label']) %></a>|
     )
 
-    @@header_search = ERB.new(
-      File.read(File.join(File.dirname(__FILE__), 'header-search.erb'))
-    ).result
-
     def initialize(cfg)
       @cfg = cfg
-      @template = ERB.new(
-        File.read(File.join(File.dirname(__FILE__), 'full.erb'))
-      )
+      @template = load_erb('header-full.erb')
+      @@header_search = load_erb('header-search.erb').result
     end
 
     def nav_menu(menu)
@@ -62,8 +58,19 @@ erb
       @@link.result binding
     end
 
+    def search_form
+      @search.result binding
+    end
+
     def result
       @template.result binding
     end
+
+    def load_erb(file)
+      ERB.new(
+        File.read(File.join(File.dirname(__FILE__), 'templates', file))
+      )
+    end
   end
+end
 end

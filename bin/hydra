@@ -3,6 +3,6 @@ require 'yaml'
 require 'hydra'
 
 @header = YAML.load_file('header.yml')
-h = Hydra::Header.new(@header)
+h = Hydra::Header::Header.new(@header)
 puts h.result
 
