@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 require 'yaml'
-require_relative 'lib/hydra'
+require 'hydra'
 
 @header = YAML.load_file('header.yml')
 h = Hydra::Header.new(@header)

@@ -1,6 +1,7 @@
 require 'erb'
 include ERB::Util
-require_relative "hydra/header/header"
+require "hydra/header/header"
+require "hydra/version"
 
 module Hydra
 
