@@ -1,4 +1,4 @@
-module Airhead
+module Hydra
   class Header
 
     @@nav = ERB.new(<<erb, nil, '>')
