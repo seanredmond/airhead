@@ -1,6 +1,12 @@
 module Hydra
   module Header
-  class Header
+    class Header
+
+    def load_erb(file)
+      ERB.new(
+        File.read(File.join(File.dirname(__FILE__), 'templates', file))
+      )
+    end
 
     @@nav = ERB.new(<<erb, nil, '>')
 <ul>
@@ -40,37 +46,32 @@ erb
       %Q|<a href="<%= h(item['link']) %>"><%= h(item['label']) %></a>|
     )
 
-    def initialize(cfg)
-      @cfg = cfg
-      @template = load_erb('header-full.erb')
-      @@header_search = load_erb('header-search.erb').result
-    end
+      def initialize(cfg)
+        @cfg = cfg
+        @template = load_erb('header-full.erb')
+        @@header_search = load_erb('header-search.erb').result
+      end
 
-    def nav_menu(menu)
-      @@nav.result binding
-    end
+      def nav_menu(menu)
+        @@nav.result binding
+      end
 
-    def second_level(item)
-      @@second_level.result binding
-    end
+      def second_level(item)
+        @@second_level.result binding
+      end
 
-    def link_label(item)
-      @@link.result binding
-    end
+      def link_label(item)
+        @@link.result binding
+      end
 
-    def search_form
-      @search.result binding
-    end
+      def search_form
+        @search.result binding
+      end
 
-    def result
-      @template.result binding
-    end
+      def result
+        @template.result binding
+      end
 
-    def load_erb(file)
-      ERB.new(
-        File.read(File.join(File.dirname(__FILE__), 'templates', file))
-      )
     end
   end
-end
 end
