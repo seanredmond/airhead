@@ -1,8 +1,21 @@
 #!/usr/bin/env ruby
 require 'yaml'
 require 'hydra'
+require 'optparse'
 
-@header = YAML.load_file('header.yml')
-h = Hydra::Header::Header.new(@header)
-puts h.result
+options = {}
+output = {}
+OptionParser.new do |opts|
+  opts.on("-c", "--config FILE", 
+          "YAML-formatted configuration file") do |cfg|
+    options[:cfg] = YAML.load_file(cfg)
+  end
+end.parse!
+
+output[:html] = File.open(options[:cfg]['output']['html'], 'w')
+output[:css] = File.open(options[:cfg]['output']['css'], 'w')
+output[:js] = File.open(options[:cfg]['output']['js'], 'w')
+
+hydra = Hydra::Output::Simple.new(output)
+hydra.render
 
