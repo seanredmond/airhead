@@ -1,4 +1,4 @@
-module Hydra
+module Herakles
   module Erbable
     def load_erb(tdir, file)
       ERB.new(

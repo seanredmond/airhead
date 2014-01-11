@@ -1,7 +1,7 @@
-module Hydra
+module Herakles
   module Output
     class Simple
-      include Hydra::Erbable
+      include Herakles::Erbable
 
       def initialize(files)
         @files = files
@@ -12,7 +12,7 @@ module Hydra
       def render
 
         @header = YAML.load_file('header.yml')
-        @h = Hydra::Header::Header.new(@header)
+        @h = Herakles::Header::Header.new(@header)
 
         puts @html_t
 

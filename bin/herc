@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 require 'yaml'
-require 'hydra'
+require 'herakles'
 require 'optparse'
 
 options = {}
@@ -16,6 +16,6 @@ output[:html] = File.open(options[:cfg]['output']['html'], 'w')
 output[:css] = File.open(options[:cfg]['output']['css'], 'w')
 output[:js] = File.open(options[:cfg]['output']['js'], 'w')
 
-hydra = Hydra::Output::Simple.new(output)
+hydra = Herakles::Output::Simple.new(output)
 hydra.render
 

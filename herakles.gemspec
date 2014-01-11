@@ -1,11 +1,11 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'hydra/version'
+require 'herakles/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "hydra"
-  spec.version       = Hydra::VERSION
+  spec.name          = "herakles"
+  spec.version       = Herakles::VERSION
   spec.authors       = ["Sean Redmond"]
   spec.email         = ["seanredmond@gmail.com"]
   spec.description   = %q{NYPL common header generation utility}

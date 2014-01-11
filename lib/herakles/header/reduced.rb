@@ -1,4 +1,4 @@
-module Hydra
+module Herakles
   module Header
     class Reduced < Header
       def initialize(cfg)
