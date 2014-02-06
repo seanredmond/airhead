@@ -3,12 +3,28 @@ require 'yaml'
 require 'herakles'
 require 'optparse'
 
-options = {}
+STYLES = ['full', 'reduced']
+
+options = {
+  :style => 'full'
+}
 output = {}
 OptionParser.new do |opts|
   opts.on("-c", "--config FILE", 
           "YAML-formatted configuration file") do |cfg|
     options[:cfg] = YAML.load_file(cfg)
+  end
+
+  opts.on("-s", "--header-style STYLE",
+          "Style of header to output. Valid values are 'full' (default) and 'reduced'") do |style|
+    if STYLES.include?(style.downcase)
+      options[:style] = style.downcase
+    end
+  end
+
+  opts.on_tail("-h", "--help", "Show this message") do
+    puts opts
+    exit
   end
 end.parse!
 
@@ -16,6 +32,6 @@ output[:html] = File.open(options[:cfg]['output']['html'], 'w')
 output[:css] = File.open(options[:cfg]['output']['css'], 'w')
 output[:js] = File.open(options[:cfg]['output']['js'], 'w')
 
-hydra = Herakles::Output::Simple.new(output)
+hydra = Herakles::Output::Simple.new(options[:style], output)
 hydra.render
 

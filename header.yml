@@ -1,5 +1,8 @@
 --- 
 menu: 
+  -
+    label: "Home"
+    link: "/"
   - 
     label: "My NYPL"
     link: "http://nypl.bibliocommons.com/dashboard/user_dashboard"
