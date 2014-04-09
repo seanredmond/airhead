@@ -2,11 +2,13 @@ module Herakles
   module Header
     class Header
 
+
     def load_erb(file)
       ERB.new(
         File.read(File.join(File.dirname(__FILE__), 'templates', file))
       )
     end
+
 
     @@nav = ERB.new(<<erb, nil, '>')
 <ul class="primary-links__container">
@@ -50,6 +52,7 @@ erb
         @cfg = cfg
         @template = load_erb('header-full.erb')
         @@header_search = load_erb('header-search.erb').result
+        @@login = load_erb('login-button.erb').result
       end
 
       def nav_menu(menu)
