@@ -3,7 +3,9 @@
   <head>
     <meta charset="utf-8">
     <title>title</title>
-    <link rel="stylesheet" href="style.css">
+    <% if !@css_includes.nil? %>
+    <%= @css_includes %>
+    <% end %>
     <script src="script.js"></script>
   </head>
   <body style="margin: 0; padding: 0">

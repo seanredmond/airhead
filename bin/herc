@@ -31,6 +31,7 @@ end.parse!
 output[:html] = File.open(options[:cfg]['output']['html'], 'w')
 output[:css] = File.open(options[:cfg]['output']['css'], 'w')
 output[:js] = File.open(options[:cfg]['output']['js'], 'w')
+output[:css_include] = options[:cfg]['css_include']
 
 hydra = Herakles::Output::Simple.new(options[:style], output)
 hydra.render
