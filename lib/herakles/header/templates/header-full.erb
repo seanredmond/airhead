@@ -1,88 +1,55 @@
-<div id="header">
-  <div id="primary-links">
+<div id="header" class="header--global">
+  <div class="buttons--mobile">
+    <div class="btn--nav--global icon-menu2"></div>
+    <div class="btn--search--global icon-search"></div>
+  </div>
+
+  <div class="header--global__top">
+
+    <div class="header__login-donate">
+      <!-- LOGIN BUTTON -->
+      <a class="btn--sso--global btn--sso" title="Log In">Log in</a>
+      <!-- DONATE BUTTON -->
+      <a class="btn--donate--global btn--donate" href="https://secure3.convio.net/nypl/site/SPageServer?pagename=donation_form&JServSessionIdr003=dwcz55yj27.app304a&s_src=FRQ14ZZ_SWBN">Donate</a>
+    </div>
+
+    <!-- LOGO -->
+    <a class="logo--global icon-NYPL_mark1_white_rev" href="/" id="site-id" title="Go to the home page"><span class="site-name visuallyhidden">The New York Public Library</span></a>	
+    
+    <!-- SEARCH BOX-->
+    <div class="search--global " id="search-top">
+      <form action="#" accept-charset="UTF-8" method="post" id="search-block-form">
+	<input class="form-text" maxlength="128" id="search-block-form-input" name="search_block_form" type="text" placeholder="Find books, music, movies and more" autocomplete="false"/>
+	
+	<fieldset class="pseudo-select">
+	  <ul>
+	    <li class="search-the-catalog">
+	      <label>
+		<input name="searchtype" type="radio" checked="checked"/>
+		Catalog
+	      </label>
+	    </li>
+	    
+	    <li class="search-the-site">
+	      <label>
+		<input name="searchtype" type="radio"/>
+		NYPL.org
+	      </label>
+	    </li>
+	  </ul>
+	</fieldset>
+	
+	<button alt="Search" class="search_button hidden-xs icon-search" name="commit" title="Search"></button>
+      </form>
+      
+      <a href="http://catalog.nypl.org/" class="classic-catalog">Classic Catalog</a>
+    </div>
+    
+    <!-- end header--global__top -->
+  </div>
+  
+  <div id="primary-links" class="primary-links">
     <%= nav_menu(@cfg['menu']) %>
   </div>
 
-  <div class="tophdr-wrapper">
-    <div id="header1"><!-- LOGIN, HELP ETC, LANGS -->
-
-      <!-- Output Global Header BiblioCommons Login Form -->
-            
-      <div class="header-buttons">
-        <a href="https://secure3.convio.net/nypl/site/SPageServer?pagename=donation_form&amp;JServSessionIdr003=dwcz55yj27.app304a&amp;s_src=FRQ14ZZ_SWN" class="donate-button">Donate</a>
-                  <div class="account-login">
-                 <a class="login-button" href="http://nypl.bibliocommons.com" title="Log In">
-                    <span class="label"></span>
-                    <img class="logged-in-arrow" src="http://www.nypl.org/sites/all/themes/nypl_new/images/site-icons/down-triangle_15.png" />
-                 </a>
-               </div>
-              <div class="sso-login">
-                 <div class="login-form desktop-login">
-                  <form action="/"  accept-charset="UTF-8" method="post" id="bc-sso-login-form">
-<div><div class="form-item" id="username-wrapper">
- <label for="username">Username or bar code: </label>
- <input type="text" maxlength="128" name="name" id="username" size="60" value="" class="form-text" />
-</div>
-<div class="form-item" id="pin-wrapper">
- <label for="pin">PIN: </label>
- <input type="password" name="user_pin" id="pin"  maxlength="128"  size="60"  class="form-text" />
-</div>
-<div class="form-item" id="remember_me-wrapper">
- <label class="option" for="remember_me"><input type="checkbox" name="remember_me" id="remember_me" value="1"   class="form-checkbox" /> Remember me</label>
-</div>
-<input type="hidden" name="destination" id="edit-destination" value="http://www.nypl.org/"  />
-<input type="submit" name="op" id="login-form-submit" value="Log In"  class="form-submit" />
-<div id="login-form-help" class="login-helptext">
-      <a href="https://nypl.bibliocommons.com/user/forgot" class="forgotpin-button">Forgot your PIN?</a>
-      <a href="http://www.nypl.org/help/library-card" class="createacct-button">Need an account?</a>
-    </div><input type="hidden" name="form_build_id" id="form-788b657433359777de1a7bcf1ac88f74" value="form-788b657433359777de1a7bcf1ac88f74"  />
-<input type="hidden" name="form_id" id="edit-bc-sso-login-form" value="bc_sso_login_form"  />
-
-</div></form>
-
-                  <p id="login-message"></p>
-                  <a id="login-form-close" style="top: 0; right: 0; position: absolute; padding: 5px; display:none;" href="#">Close</a>
-                 </div>
-
-                 <ul class="logged-in-menu">
-                   <li><a href="http://nypl.bibliocommons.com/user/account">Personal Information</a></li>
-                   <li><a href="http://nypl.bibliocommons.com/user/saved_searches">Saved Searches</a></li>
-                   <li><a href="http://nypl.bibliocommons.com/user/preferences">Preferences</a></li>
-                   <li><a href="http://nypl.bibliocommons.com/user/privacy">Privacy</a></li>
-                   <li><a href="http://nypl.bibliocommons.com/user/reminders">Reminders</a></li>
-                   <li><a href="http://nypl.bibliocommons.com/communitycredits">Community Credits</a></li>
-                   <li><a href="http://nypl.bibliocommons.com/carts/order_history">Order History</a></li>
-                   <li><a href="http://www.nypl.org/bc_sso/logout" id="sso-logout">Log out</a></li>
-                 </ul>
-              </div>         
-      </div>
-    </div>
-
-    <div id="header2">
-      <a href="/" id="site-id" title="Go to the home page"><span class="site-name">The New York Public Library</span></a>
-
-      <a href="/" class="logo grid_8">
-        <!-- <a href="/" title="Go to the home page"> -->
-          The New York Public Library
-        <!-- </a>     -->
-      </a>
-      
-      <!-- Responsive header buttons -->
-      <div class="collapsed-buttons">
-        <div class="button search-open-button icon-search"></div>
-        <div class="button nav-open-button icon-menu"></div>
-      </div> 
-      <%= @@header_search %>
-    </div>
-  <!-- end .tophdr-wrapper -->
-  </div>
-
-
-  <!-- div id="header3">
-    <div class="nav-wrapper">
-      <div id="primary-links">
-        <%= nav_menu(@cfg['menu']) %>
-      </div>
-    </div>
-  </div -->
 </div>
