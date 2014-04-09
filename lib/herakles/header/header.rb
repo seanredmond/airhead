@@ -9,16 +9,16 @@ module Herakles
     end
 
     @@nav = ERB.new(<<erb, nil, '>')
-<ul>
+<ul class="primary-links__container">
   <% menu.each do |item| %>
     <% if item['menu'].nil? %>
       <li>
     <% else %>
-      <li class="dropDown">
+      <li class="<%= dropdown_class %>">
     <% end %>
       <%= link_label(item) %>
       <%if ! item['menu'].nil? %>
-        <div class="dropDownContent">
+        <div class="<%= dropdowncontent_class(item['label']) %>">
           <%= second_level(item['menu']) %>
         </div>
       <% end %>
@@ -70,6 +70,15 @@ erb
 
       def result
         @template.result binding
+      end
+
+      def dropdown_class
+        "dropDown"
+      end
+
+      def dropdowncontent_class(label)
+        css_label = label.downcase.gsub(/\s/, '')
+        "#{dropdown_class()}Content__#{css_label}"
       end
 
     end
